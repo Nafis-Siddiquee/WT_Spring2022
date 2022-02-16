@@ -1,0 +1,169 @@
+create table Ulty_Cust_Basic_Prnt
+(
+Ulty_Cust_Basic_Prnt_Id number(11),
+Full_Name varchar2(100),
+Short_Name varchar2(10),
+Vendor_Code varchar2(25),
+Corresponding_Supplier_Id number(11),
+Sew_Effin_Percentage decimal(2,3),
+Mkt_Team_Id number(11),
+Factory_Marchant varchar2(100),
+SubCon_Delv_Secured_Id number(2),
+Insert_User_Id number(11),
+Icut_Off_Used_Id number(1),
+Insert_Date_Time date,
+Update_User_Id number(11),
+Update_Date_Time date,
+Delete_Status number(1),
+Insert_User_Ip_Address varchar2(30),
+Update_User_Ip_Address varchar2(30),
+Status_Id number(1)
+)
+alter table Ulty_Cust_Basic_Prnt add constraint pk_Basic_Prnt primary key(Ulty_Cust_Basic_Prnt_Id)
+
+
+
+create table Ulty_Cust_Nature_Chld
+(
+Ulty_Cust_Nature_Chld_Id number(3),
+Ulty_Cust_Basic_Prnt_Id number(11),
+Cust_Nature_Id number(3),
+Insert_User_Id number(11),
+Insert_Date_Time date,
+Update_User_Id number(11),
+Update_Date_Time date,
+Delete_Status number(1),
+Insert_User_Ip_Address varchar2(30),
+Update_User_Ip_Address varchar2(30),
+Status_Id number(1)
+)
+alter table Ulty_Cust_Nature_Chld add constraint pk_Nature_Chld primary key(Ulty_Cust_Nature_Chld_Id)
+alter table Ulty_Cust_Nature_Chld add constraint fk_Nature_Chld foreign key(Ulty_Cust_Basic_Prnt_Id) references Ulty_Cust_Basic_Prnt(Ulty_Cust_Basic_Prnt_Id)
+
+
+
+create table Ulty_Cust_Company_Chld
+(
+Ulty_Cust_Company_Chld_Id number(3),
+Ulty_Cust_Basic_Prnt_Id number(11),
+Company_Id number(3),
+Insert_User_Id number(11),
+Insert_Date_Time date,
+Update_User_Id number(11),
+Update_Date_Time date,
+Delete_Status number(1),
+Insert_User_Ip_Address varchar2(30),
+Update_User_Ip_Address varchar2(30),
+Status_Id number(1)
+)
+alter table Ulty_Cust_Company_Chld add constraint pk_Company_Chld primary key(Ulty_Cust_Company_Chld_Id)
+alter table Ulty_Cust_Company_Chld add constraint fk_Company_Chld foreign key(Ulty_Cust_Basic_Prnt_Id) references Ulty_Cust_Basic_Prnt(Ulty_Cust_Basic_Prnt_Id)
+
+
+
+create table Ulty_Cust_Sample_Chld
+(
+Ulty_Cust_Sample_Chld_Id number(3),
+Ulty_Cust_Basic_Prnt_Id number(11),
+Gmt_Sample_Id number(3),
+Sample_Sequence number(3),
+Insert_User_Id number(11),
+Insert_Date_Time date,
+Update_User_Id number(11),
+Update_Date_Time date,
+Delete_Status number(1),
+Insert_User_Ip_Address varchar2(30),
+Update_User_Ip_Address varchar2(30),
+Status_Id number(1)
+)
+alter table Ulty_Cust_Sample_Chld add constraint pk_Sample_Chld primary key(Ulty_Cust_Sample_Chld_Id)
+alter table Ulty_Cust_Sample_Chld add constraint fk_Sample_Chld foreign key(Ulty_Cust_Basic_Prnt_Id) references Ulty_Cust_Basic_Prnt(Ulty_Cust_Basic_Prnt_Id)
+
+
+
+create table Ulty_Cust_Nom_Supplier_Chld
+(
+Ulty_Cust_Nom_Supplier_Chld_Id number(11),
+Ulty_Cust_Basic_Prnt_Id number(11),
+Supplier_Id number(11),
+Insert_User_Id number(11),
+Insert_Date_Time date,
+Update_User_Id number(11),
+Update_Date_Time date,
+Delete_Status number(1),
+Insert_User_Ip_Address varchar2(30),
+Update_User_Ip_Address varchar2(30),
+Status_Id number(1)
+)
+alter table Ulty_Cust_Nom_Supplier_Chld add constraint pk_Nom_Supplier_Chld primary key(Ulty_Cust_Nom_Supplier_Chld_Id)
+alter table Ulty_Cust_Nom_Supplier_Chld add constraint fk_Nom_Supplier_Chld foreign key(Ulty_Cust_Basic_Prnt_Id) references Ulty_Cust_Basic_Prnt(Ulty_Cust_Basic_Prnt_Id)
+
+
+
+
+create table Ulty_Cust_Contact_Chld
+(
+Ulty_Cust_Contact_Chld_Id number(3),
+Ulty_Cust_Basic_Prnt_Id number(11),
+Country_Id number(4),
+Shipment_Day varchar2(100),
+Address varchar2(200),
+Email varchar2(100),
+Contact_Person varchar2(100),
+Designation varchar2(100),
+Insert_User_Id number(11),
+Insert_Date_Time date,
+Update_User_Id number(11),
+Update_Date_Time date,
+Delete_Status number(1),
+Insert_User_Ip_Address varchar2(30),
+Update_User_Ip_Address varchar2(30),
+Status_Id number(1)
+)
+alter table Ulty_Cust_Contact_Chld add constraint pk_Contact_Chld primary key(Ulty_Cust_Contact_Chld_Id)
+alter table Ulty_Cust_Contact_Chld add constraint fk_Contact_Chld foreign key(Ulty_Cust_Basic_Prnt_Id) references Ulty_Cust_Basic_Prnt(Ulty_Cust_Basic_Prnt_Id)
+
+
+
+create table Ulty_Cust_Cont_Ship_Chld
+(
+Ulty_Cust_Cont_Ship_Chld_Id number(3),
+Ulty_Cust_Contact_Chld_Id number(3),
+Day_Name varchar2(30),
+Insert_User_Id number(11),
+Insert_Date_Time date,
+Update_User_Id number(11),
+Update_Date_Time date,
+Delete_Status number(1),
+Insert_User_Ip_Address varchar2(30),
+Update_User_Ip_Address varchar2(30),
+Status_Id number(1)
+)
+alter table Ulty_Cust_Cont_Ship_Chld add constraint pk_Cont_Ship_Chld primary key(Ulty_Cust_Cont_Ship_Chld_Id)
+alter table Ulty_Cust_Cont_Ship_Chld add constraint fk_Cont_Ship_Chld foreign key(Ulty_Cust_Contact_Chld_Id) references Ulty_Cust_Contact_Chld(Ulty_Cust_Contact_Chld_Id)
+
+
+
+create table Ulty_Cust_Financial_Chld
+(
+Ulty_Cust_Financial_Chld_Id number(3),
+Ulty_Cust_Basic_Prnt_Id number(11),
+Cr_Limit_Amt decimal(3,5),
+Cr_Limit_Day number(3),
+Discount_Method_id varchar2(200),
+Sec_Deduction_Id number(2),
+Vat_Deduction_Id number(2),
+Ait_Deduction_Id number(2),
+Foreign_Commn decimal(2,3),
+Local_Commn decimal(2,3),
+Insert_User_Id number(11),
+Insert_Date_Time date,
+Update_User_Id number(11),
+Update_Date_Time date,
+Delete_Status number(1),
+Insert_User_Ip_Address varchar2(30),
+Update_User_Ip_Address varchar2(30),
+Status_Id number(1)
+)
+alter table Ulty_Cust_Financial_Chld add constraint pk_Financial_Chld primary key(Ulty_Cust_Financial_Chld_Id)
+alter table Ulty_Cust_Financial_Chld add constraint fk_Financial_Chld foreign key(Ulty_Cust_Basic_Prnt_Id) references Ulty_Cust_Basic_Prnt(Ulty_Cust_Basic_Prnt_Id)
