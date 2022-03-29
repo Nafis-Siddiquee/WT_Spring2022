@@ -1,0 +1,25 @@
+   1. Admin 
+
+database Lakeshore Tourism
+ -> TABLE admin
+  i.admin info
+
+ -> Table package
+   i. package name
+  ii. pkg id****
+ iii. pkg description
+  iv. price
+
+-> Table customer 
+ i.  Cuatomer name
+ ii. customer age 
+iii. email.
+iv.  phone number
+->Table triphstory
+   packge id ****
+vi.  Hotel id ****
+vii. LT ID**** 
+Viii. 
+ 
+ 
+ 
